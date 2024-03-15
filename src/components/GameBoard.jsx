@@ -1,21 +1,6 @@
 //to use the game borde frest we need render the 3X3 col and row grid and we initainalz the game bord that game bord have 3 row and 3 col
 
-const initialGameBoard = [
-  [null, null, null],
-  [null, null, null],
-  [null, null, null],
-];
-
-export default function GameBoard({ onSelectSquare, turns }) {
-  let gameBoard = initialGameBoard;
-
-  for (const turn of turns) {
-    const { square, player } = turn;
-    const { row, col } = square;
-
-    gameBoard[row][col] = player;
-  }
-
+export default function GameBoard({ onSelectSquare, board }) {
   // const [gameBoard, setGameBoard] = useState(initialGameBoard);
 
   // function handleSelectSquare(rowIndex, colIndex) {
@@ -36,7 +21,7 @@ export default function GameBoard({ onSelectSquare, turns }) {
         []
         [] we find this
       */}
-      {gameBoard.map((row, rowIndex) => (
+      {board.map((row, rowIndex) => (
         <li key={rowIndex}>
           <ol>
             {/* // in order to fill the null value or the playesymbol x or o we used
