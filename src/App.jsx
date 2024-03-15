@@ -63,8 +63,6 @@ function App() {
   const [players, setPlayers] = useState(PLAYERS);
   const [gameTurns, setGameTurns] = useState([]);
 
-  //const [activePlayer, setActivePlayer] = useState("X");
-
   const activePlayer = drivetActivePlayer(gameTurns);
   const gameBoard = deriveGameBord(gameTurns);
 
@@ -72,7 +70,6 @@ function App() {
   const hasDraw = gameTurns.length === 9 && !winner;
 
   function handleSelectSquare(rowIndex, colIndex) {
-    //setActivePlayer((curActivePlayer) => (curActivePlayer === "X" ? "O" : "X"));
     setGameTurns((prevTurns) => {
       const currentPlayer = drivetActivePlayer(prevTurns);
       const updatedTurns = [
@@ -98,7 +95,7 @@ function App() {
 
   return (
     <>
-      <Header />;
+      <Header />
       <main>
         <div id="game-container">
           <ol id="players" className="highlight-player">
