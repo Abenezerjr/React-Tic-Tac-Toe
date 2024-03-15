@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Player({ initialaName, symbol }) {
+export default function Player({ initialaName, symbol, isActive }) {
   // in order to update the value of  the playe name we defind the new state
   const [playName, setPlayerName] = useState(initialaName);
   // in order to use edit playe name must use usestate and then defind the use state
@@ -31,7 +31,7 @@ export default function Player({ initialaName, symbol }) {
   }
 
   return (
-    <li>
+    <li className={isActive ? "active" : undefined}>
       <span className="player">
         {editablePlayerName}
         <span className="player-symbol">{symbol}</span>
