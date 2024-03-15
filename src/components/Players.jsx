@@ -1,6 +1,11 @@
 import { useState } from "react";
 
-export default function Player({ initialaName, symbol, isActive }) {
+export default function Player({
+  initialaName,
+  symbol,
+  isActive,
+  onChageName,
+}) {
   // in order to update the value of  the playe name we defind the new state
   const [playName, setPlayerName] = useState(initialaName);
   // in order to use edit playe name must use usestate and then defind the use state
@@ -13,6 +18,10 @@ export default function Player({ initialaName, symbol, isActive }) {
     // setIsEditing(!isEditing);a => schedules a sate update to true but does not immmideteliy change the state
     // you should add function in order to update besd on prevois statit
     setIsEditing((editing) => !editing);
+
+    if (isEditing) {
+      onChageName(symbol, playName);
+    }
   }
   //and theis new state have afuntion triggred when click the edeti butt outomaticaliy change thiat
   // that lisne event on the input button that event is a list of carcther or pasr of charactr target emmit the target add in to the value of the input
